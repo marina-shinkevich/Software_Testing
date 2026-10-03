@@ -1,0 +1,21 @@
+{
+  "name": "kufar_selenium_tests",
+  "version": "1.0.0",
+  "description": "Selenium tests for Kufar.by using Page Object Model with Edge",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx mocha tests/kufar.test.js --timeout 30000 --reporter mochawesome --reporter-options reportDir=report,reportFilename=testReport",
+    "test:smoke": "npx mocha tests/kufar.test.js --grep @smoke --timeout 30000",
+    "test:skip": "npx mocha tests/kufar.test.js --timeout 30000",
+    "test:only": "npx mocha tests/kufar.test.js --grep @important --timeout 30000"
+  },
+  "keywords": ["selenium", "page-object", "testing"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "selenium-webdriver": "^4.15.0",
+    "mocha": "^10.2.0",
+    "mochawesome": "^7.1.3",
+    "edgedriver": "^5.3.10"
+  }
+}

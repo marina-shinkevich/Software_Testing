@@ -1,0 +1,22 @@
+{
+  "name": "lapka8",
+  "version": "1.0.0",
+  "description": "Selenium WebDriver tests for magizoo.ru",
+  "main": "tests.js",
+  "scripts": {
+    "test": "mocha tests.js --timeout 30000",
+    "test:simple": "node simple-test.js",
+    "test:headless": "mocha tests.js --timeout 30000 --grep \"Открытие главной страницы\""
+  },
+  "keywords": ["selenium", "webdriver", "testing", "magizoo"],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "chromedriver": "^148.0.3",
+    "selenium-webdriver": "^4.44.0"
+  },
+  "devDependencies": {
+    "mocha": "^10.0.0"
+  }
+}

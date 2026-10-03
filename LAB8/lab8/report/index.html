@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <title>Viva Braslav — Отчёт</title>
+</head>
+<body>
+    <h1>Viva Braslav 2026 — Отчёт по тестам</h1>
+    <p id="date"></p>
+    <h2>Статистика</h2>
+    <div id="stats"></div>
+    <h2>Тесты</h2>
+    <div id="tests"></div>
+    <script>
+        var DATA = {"stats":{"suites":1,"tests":6,"passes":2,"pending":1,"failures":3,"start":"2026-05-05T10:29:45.269Z","end":"2026-05-05T10:31:35.898Z","duration":110629},"tests":[{"title":"@smoke Главная страница загружается","fullTitle":" Тест-сьют для VivaBraslav.by @smoke Главная страница загружается","file":"D:\\БГТУ\\TPO\\LAB8\\lab8\\tests\\vivabraslav.test.js","duration":30006,"currentRetry":0,"err":{"stack":"Error: Timeout of 30000ms exceeded. For async tests and hooks, ensure \"done()\" is called; if returning a Promise, ensure it resolves. (D:\\БГТУ\\TPO\\LAB8\\lab8\\tests\\vivabraslav.test.js)\n    at listOnTimeout (node:internal/timers:605:17)\n    at process.processTimers (node:internal/timers:541:7)","message":"Timeout of 30000ms exceeded. For async tests and hooks, ensure \"done()\" is called; if returning a Promise, ensure it resolves. (D:\\БГТУ\\TPO\\LAB8\\lab8\\tests\\vivabraslav.test.js)","code":"ERR_MOCHA_TIMEOUT","timeout":30000,"file":"D:\\БГТУ\\TPO\\LAB8\\lab8\\tests\\vivabraslav.test.js"}},{"title":"Обработка куки","fullTitle":" Тест-сьют для VivaBraslav.by Обработка куки","file":"D:\\БГТУ\\TPO\\LAB8\\lab8\\tests\\vivabraslav.test.js","duration":30007,"currentRetry":0,"err":{"stack":"Error: Timeout of 30000ms exceeded. For async tests and hooks, ensure \"done()\" is called; if returning a Promise, ensure it resolves. (D:\\БГТУ\\TPO\\LAB8\\lab8\\tests\\vivabraslav.test.js)\n    at listOnTimeout (node:internal/timers:605:17)\n    at process.processTimers (node:internal/timers:541:7)","message":"Timeout of 30000ms exceeded. For async tests and hooks, ensure \"done()\" is called; if returning a Promise, ensure it resolves. (D:\\БГТУ\\TPO\\LAB8\\lab8\\tests\\vivabraslav.test.js)","code":"ERR_MOCHA_TIMEOUT","timeout":30000,"file":"D:\\БГТУ\\TPO\\LAB8\\lab8\\tests\\vivabraslav.test.js"}},{"title":"@navigation Открытие раздела tickets","fullTitle":" Тест-сьют для VivaBraslav.by @navigation Открытие раздела tickets","file":"D:\\БГТУ\\TPO\\LAB8\\lab8\\tests\\vivabraslav.test.js","duration":26380,"currentRetry":0,"speed":"slow","err":{}},{"title":"@navigation Открытие раздела faq","fullTitle":" Тест-сьют для VivaBraslav.by @navigation Открытие раздела faq","file":"D:\\БГТУ\\TPO\\LAB8\\lab8\\tests\\vivabraslav.test.js","duration":23556,"currentRetry":0,"speed":"slow","err":{}},{"title":"@skip Пропущен","fullTitle":" Тест-сьют для VivaBraslav.by @skip Пропущен","file":"D:\\БГТУ\\TPO\\LAB8\\lab8\\tests\\vivabraslav.test.js","currentRetry":0,"err":{}},{"title":"@failing Ожидаемое падение","fullTitle":" Тест-сьют для VivaBraslav.by @failing Ожидаемое падение","file":"D:\\БГТУ\\TPO\\LAB8\\lab8\\tests\\vivabraslav.test.js","duration":2,"currentRetry":0,"err":{"stack":"AssertionError [ERR_ASSERTION]: ❌ Специально для демонстрации\n    at Context.<anonymous> (tests\\vivabraslav.test.js:55:16)\n    at process.processImmediate (node:internal/timers:504:21)","message":"❌ Специально для демонстрации","generatedMessage":false,"name":"AssertionError","code":"ERR_ASSERTION","operator":"fail","diff":"simple"}}]};
+
+        document.getElementById('date').textContent = new Date(DATA.stats.start).toLocaleString('ru-RU');
+        var s = DATA.stats;
+        document.getElementById('stats').innerHTML =
+            'Всего тестов: ' + s.tests + '<br>' +
+            ' Пройдено: ' + s.passes + '<br>' +
+            ' Упало: ' + s.failures + '<br>' +
+            ' Ожидает: ' + s.pending + '<br>' +
+            '⏱ Длительность: ' + Math.round(s.duration / 1000) + ' сек';
+
+        var container = document.getElementById('tests');
+        DATA.tests.forEach(function(t) {
+            //  Исправленная логика статусов
+            var state = t.state || 'passed';
+            var isPending = state === 'pending' || t.pending === true;
+            var isFailed  = state === 'failed';
+            
+            var icon = isPending ? '⏳' : (isFailed ? '❌' : '✅');
+            var bg = isFailed ? '#ffebee' : (isPending ? '#fff8e1' : '#fff');
+            var border = isFailed ? 'border-left: 4px solid #d32f2f;' : (isPending ? 'border-left: 4px solid #fbc02d;' : 'border-left: 4px solid #4caf50;');
+            
+            var errHtml = '';
+            if (isFailed && t.err && t.err.message) {
+                errHtml = '<br><small style="color:#c62828">🔴 Ошибка: ' + t.err.message.replace(/</g, '&lt;').replace(/\n/g, '<br>') + '</small>';
+            }
+
+            var div = document.createElement('div');
+            div.style.cssText = 'margin-bottom:12px;padding:10px;background:' + bg + ';' + border + 'border-radius:4px;';
+            div.innerHTML = '<b>' + icon + ' ' + (t.fullTitle || t.title).replace(/</g, '&lt;') + '</b>' +
+                            '<br><small>⏱️ ' + ((t.duration||0)/1000).toFixed(1) + ' сек' + errHtml + '</small>';
+            container.appendChild(div);
+        });
+    </script>
+</body>
+</html>

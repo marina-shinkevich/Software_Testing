@@ -1,0 +1,152 @@
+[
+  {
+    "domain": ".vivabraslav.by",
+    "expiry": 1785005406,
+    "httpOnly": false,
+    "name": "_fbp",
+    "path": "/",
+    "sameSite": "Lax",
+    "secure": false,
+    "value": "fb.1.1777229400324.836558461741474593"
+  },
+  {
+    "domain": ".vivabraslav.by",
+    "expiry": 1777315799,
+    "httpOnly": false,
+    "name": "_gid",
+    "path": "/",
+    "sameSite": "Lax",
+    "secure": false,
+    "value": "GA1.2.486071048.1777229400"
+  },
+  {
+    "domain": ".vivabraslav.by",
+    "expiry": 1785005399,
+    "httpOnly": false,
+    "name": "_gcl_au",
+    "path": "/",
+    "sameSite": "Lax",
+    "secure": false,
+    "value": "1.1.1493097794.1777229399"
+  },
+  {
+    "domain": ".vivabraslav.by",
+    "expiry": 1811789402,
+    "httpOnly": false,
+    "name": "_ga_BV86TFJV9K",
+    "path": "/",
+    "sameSite": "Lax",
+    "secure": false,
+    "value": "GS2.1.s1777229402$o1$g0$t1777229402$j60$l0$h0"
+  },
+  {
+    "domain": ".vivabraslav.by",
+    "expiry": 1810925406,
+    "httpOnly": false,
+    "name": "ttcsid",
+    "path": "/",
+    "sameSite": "Lax",
+    "secure": false,
+    "value": "1777229400679::ql1W3dDJPBvlp6Ss_vMd.1.1777229406480.0::1.5544.0::5500.1.1187.35::0.0.0"
+  },
+  {
+    "domain": ".vivabraslav.by",
+    "expiry": 1810925400,
+    "httpOnly": false,
+    "name": "_ttp",
+    "path": "/",
+    "sameSite": "Lax",
+    "secure": false,
+    "value": "01KQ5J12K3VRKMSQT43TFAMXXR_.tt.1"
+  },
+  {
+    "domain": ".vivabraslav.by",
+    "expiry": 1777229459,
+    "httpOnly": false,
+    "name": "_dc_gtm_UA-159347242-1",
+    "path": "/",
+    "sameSite": "Lax",
+    "secure": false,
+    "value": "1"
+  },
+  {
+    "domain": ".vivabraslav.by",
+    "expiry": 1808765400,
+    "httpOnly": false,
+    "name": "_ym_uid",
+    "path": "/",
+    "sameSite": "None",
+    "secure": true,
+    "value": "1777229401377730228"
+  },
+  {
+    "domain": ".vivabraslav.by",
+    "expiry": 1808765400,
+    "httpOnly": false,
+    "name": "_ym_d",
+    "path": "/",
+    "sameSite": "None",
+    "secure": true,
+    "value": "1777229401"
+  },
+  {
+    "domain": ".vivabraslav.by",
+    "expiry": 1810925400,
+    "httpOnly": false,
+    "name": "_tt_enable_cookie",
+    "path": "/",
+    "sameSite": "Lax",
+    "secure": false,
+    "value": "1"
+  },
+  {
+    "domain": ".vivabraslav.by",
+    "expiry": 1777301400,
+    "httpOnly": false,
+    "name": "_ym_isad",
+    "path": "/",
+    "sameSite": "None",
+    "secure": true,
+    "value": "2"
+  },
+  {
+    "domain": ".vivabraslav.by",
+    "expiry": 1777231200,
+    "httpOnly": false,
+    "name": "_ym_visorc",
+    "path": "/",
+    "sameSite": "None",
+    "secure": true,
+    "value": "w"
+  },
+  {
+    "domain": ".vivabraslav.by",
+    "expiry": 1811789402,
+    "httpOnly": false,
+    "name": "_ga",
+    "path": "/",
+    "sameSite": "Lax",
+    "secure": false,
+    "value": "GA1.1.1647201335.1777229400"
+  },
+  {
+    "domain": ".vivabraslav.by",
+    "expiry": 1810925406,
+    "httpOnly": false,
+    "name": "ttcsid_CNJFF93C77UE62BN6N9G",
+    "path": "/",
+    "sameSite": "Lax",
+    "secure": false,
+    "value": "1777229400679::93ifXbBLdv0pNB1dvxUn.1.1777229406480.1"
+  },
+  {
+    "domain": ".vivabraslav.by",
+    "expiry": 1811789406,
+    "httpOnly": false,
+    "name": "_ga_117NWJQ571",
+    "path": "/",
+    "sameSite": "Lax",
+    "secure": false,
+    "value": "GS2.1.s1777229402$o1$g0$t1777229406$j56$l0$h0"
+  }
+]

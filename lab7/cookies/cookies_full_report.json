@@ -1,0 +1,79 @@
+{
+  "totalCookies": 7,
+  "domains": 1,
+  "cookiesByDomain": {
+    ".demoqa.com": [
+      {
+        "domain": ".demoqa.com",
+        "expiry": 1813594725,
+        "httpOnly": false,
+        "name": "_ga",
+        "path": "/",
+        "sameSite": "Lax",
+        "secure": false,
+        "value": "GA1.2.1390236820.1779034711"
+      },
+      {
+        "domain": ".demoqa.com",
+        "expiry": 1812730711,
+        "httpOnly": false,
+        "name": "__gads",
+        "path": "/",
+        "sameSite": "None",
+        "secure": true,
+        "value": "ID=689187107239f584:T=1779034711:RT=1779034711:S=ALNI_MZl6NdWBypetzB-YiLolVSD25s8fw"
+      },
+      {
+        "domain": ".demoqa.com",
+        "expiry": 1779121125,
+        "httpOnly": false,
+        "name": "_gid",
+        "path": "/",
+        "sameSite": "Lax",
+        "secure": false,
+        "value": "GA1.2.1677057009.1779034711"
+      },
+      {
+        "domain": ".demoqa.com",
+        "expiry": 1779034771,
+        "httpOnly": false,
+        "name": "_gat_UA-109033876-1",
+        "path": "/",
+        "sameSite": "Lax",
+        "secure": false,
+        "value": "1"
+      },
+      {
+        "domain": ".demoqa.com",
+        "expiry": 1794586711,
+        "httpOnly": false,
+        "name": "__eoi",
+        "path": "/",
+        "sameSite": "None",
+        "secure": true,
+        "value": "ID=d6aa1a5ee379e814:T=1779034711:RT=1779034711:S=AA-AfjaKFp_eUf_J-NV188Bz9MAx"
+      },
+      {
+        "domain": ".demoqa.com",
+        "expiry": 1813594725,
+        "httpOnly": false,
+        "name": "_ga_MVRXK93D28",
+        "path": "/",
+        "sameSite": "Lax",
+        "secure": false,
+        "value": "GS2.1.s1779034702$o1$g1$t1779034725$j37$l0$h0"
+      },
+      {
+        "domain": ".demoqa.com",
+        "expiry": 1812730711,
+        "httpOnly": false,
+        "name": "__gpi",
+        "path": "/",
+        "sameSite": "None",
+        "secure": true,
+        "value": "UID=000013b4de1c5dec:T=1779034711:RT=1779034711:S=ALNI_MbKlwShvOryos_RmWhoq2bhZLNTRg"
+      }
+    ]
+  },
+  "timestamp": "2026-05-17T16:18:47.918Z"
+}

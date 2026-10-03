@@ -1,0 +1,242 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 6,
+    "passes": 4,
+    "pending": 1,
+    "failures": 1,
+    "start": "2026-04-27T07:24:36.319Z",
+    "end": "2026-04-27T07:25:45.835Z",
+    "duration": 69516,
+    "testsRegistered": 6,
+    "passPercent": 80,
+    "pendingPercent": 16.666666666666664,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "da468a50-4b3e-4cab-9495-f4b4e5ed3c5f",
+      "title": "",
+      "fullFile": "C:\\Labs_3c_6s\\Тест\\lab8\\tests\\kufar.test.js",
+      "file": "\\tests\\kufar.test.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "625c4103-7039-46a1-9d1f-4280d3fe7cef",
+          "title": "Kufar.by Test Suite",
+          "fullFile": "C:\\Labs_3c_6s\\Тест\\lab8\\tests\\kufar.test.js",
+          "file": "\\tests\\kufar.test.js",
+          "beforeHooks": [
+            {
+              "title": "\"before all\" hook in \"Kufar.by Test Suite\"",
+              "fullTitle": "Kufar.by Test Suite \"before all\" hook in \"Kufar.by Test Suite\"",
+              "timedOut": false,
+              "duration": 179,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "console.log('Starting browser...');\ndriver = createDriver();\nmainPage = new MainPage(driver);\nconsole.log('Browser started successfully');",
+              "err": {},
+              "uuid": "e32aed96-be2d-4025-89bb-06466fab0878",
+              "parentUUID": "625c4103-7039-46a1-9d1f-4280d3fe7cef",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after all\" hook in \"Kufar.by Test Suite\"",
+              "fullTitle": "Kufar.by Test Suite \"after all\" hook in \"Kufar.by Test Suite\"",
+              "timedOut": false,
+              "duration": 698,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "if (driver) {\n    console.log('Closing browser...');\n    try {\n        await driver.quit();\n    } catch (error) {\n        console.log('Error closing browser:', error.message);\n    }\n}",
+              "err": {},
+              "uuid": "d7332d9f-1f2d-497e-a127-c684a15723da",
+              "parentUUID": "625c4103-7039-46a1-9d1f-4280d3fe7cef",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [
+            {
+              "title": "@smoke @important Should load the main page and display correct title",
+              "fullTitle": "Kufar.by Test Suite @smoke @important Should load the main page and display correct title",
+              "timedOut": false,
+              "duration": 15465,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "console.log('\\n=== Test 1: Loading main page ===');\nawait mainPage.open();\nawait driver.sleep(2000);\n\ntry {\n    await mainPage.acceptCookies();\n} catch (error) {\n    console.log('Cookie handling skipped');\n}\nconst title = await mainPage.getTitle();\nconsole.log(`Page title: \"${title}\"`);\nawait takeScreenshot(driver, 'main_page_loaded');\nassert.ok(title.length > 0, 'Title should not be empty');\nconsole.log('✓ Test 1 passed\\n');",
+              "err": {},
+              "uuid": "113d7bb4-fe64-4a28-a9bd-4fc439f2087c",
+              "parentUUID": "625c4103-7039-46a1-9d1f-4280d3fe7cef",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Should demonstrate cookie handling",
+              "fullTitle": "Kufar.by Test Suite Should demonstrate cookie handling",
+              "timedOut": false,
+              "duration": 24494,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "console.log('\\n=== Test 2: Cookie handling ===');\nawait mainPage.open();\nawait driver.sleep(2000);\n// Получаем и выводим все куки\nconst allCookies = await driver.manage().getCookies();\nconsole.log('--- Current Cookies ---');\nif (allCookies.length === 0) {\n    console.log('No cookies present');\n} else {\n    // Выводим первые 5 кук для примера\n    allCookies.slice(0, 5).forEach(cookie => {\n        console.log(`  ${cookie.name}: ${cookie.value.substring(0, 30)}...`);\n    });\n    if (allCookies.length > 5) {\n        console.log(`  ... and ${allCookies.length - 5} more cookies`);\n    }\n}\nconsole.log(`Total: ${allCookies.length} cookies\\n`);\n// Добавляем тестовую куку\nconsole.log('Adding test cookie...');\nawait driver.manage().addCookie({ \n    name: 'test_cookie', \n    value: 'selenium_test_value_123'\n});\nconsole.log('✓ Cookie added');\n// Проверяем добавление\nconst addedCookie = await driver.manage().getCookie('test_cookie');\nconsole.log(`Added cookie value: ${addedCookie.value}`);\nassert.strictEqual(addedCookie.value, 'selenium_test_value_123');\nconsole.log('✓ Cookie verification passed');\n// Сохраняем скриншот с информацией о куках\nawait takeScreenshot(driver, 'cookies_demo');\n// Удаляем куку\nconsole.log('Deleting test cookie...');\nawait driver.manage().deleteCookie('test_cookie');\nconsole.log('✓ Cookie deleted');\n// Проверяем удаление с обработкой ошибки\ntry {\n    const deletedCookie = await driver.manage().getCookie('test_cookie');\n    console.log(`Cookie after deletion: ${deletedCookie}`);\n    // Если кука не найдена, getCookie возвращает null\n    assert.strictEqual(deletedCookie, null, 'Cookie should be null after deletion');\n} catch (error) {\n    // Если getCookie выбрасывает исключение при отсутствии куки,\n    // это тоже нормально - значит кука успешно удалена\n    if (error.name === 'NoSuchCookieError') {\n        console.log('✓ Cookie successfully deleted (not found)');\n    } else {\n        throw error;\n    }\n}\nconsole.log('✓ Test 2 passed\\n');",
+              "err": {},
+              "uuid": "e2eed141-d3df-459d-b8e0-66877047dcaa",
+              "parentUUID": "625c4103-7039-46a1-9d1f-4280d3fe7cef",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "@search Should find items by query: \"велосипед\" (ru)",
+              "fullTitle": "Kufar.by Test Suite @search Should find items by query: \"велосипед\" (ru)",
+              "timedOut": false,
+              "duration": 15406,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "console.log(`\\n=== Test: Search \"${query}\" (${language}) ===`);\nawait mainPage.open();\nawait driver.sleep(2000);\n\ntry {\n    await mainPage.acceptCookies();\n} catch (error) {\n    console.log('Cookie handling skipped');\n}\nconsole.log(`Performing search for: ${query}`);\nawait mainPage.searchForItem(query);\nawait driver.sleep(3000);\nawait takeScreenshot(driver, `search_${language}_${query}`);\nconst currentUrl = await mainPage.getCurrentUrl();\nconst pageTitle = await mainPage.getTitle();\nconsole.log(`URL after search: ${currentUrl}`);\nconsole.log(`Title after search: \"${pageTitle}\"`);\nassert.ok(pageTitle.length > 0, 'Page should have a title');\nconsole.log(`✓ Search test for \"${query}\" passed\\n`);",
+              "err": {},
+              "uuid": "094c157b-0212-4cd9-9eda-c379e3c58f21",
+              "parentUUID": "625c4103-7039-46a1-9d1f-4280d3fe7cef",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "@search Should find items by query: \"ноутбук\" (ru)",
+              "fullTitle": "Kufar.by Test Suite @search Should find items by query: \"ноутбук\" (ru)",
+              "timedOut": false,
+              "duration": 13211,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "console.log(`\\n=== Test: Search \"${query}\" (${language}) ===`);\nawait mainPage.open();\nawait driver.sleep(2000);\n\ntry {\n    await mainPage.acceptCookies();\n} catch (error) {\n    console.log('Cookie handling skipped');\n}\nconsole.log(`Performing search for: ${query}`);\nawait mainPage.searchForItem(query);\nawait driver.sleep(3000);\nawait takeScreenshot(driver, `search_${language}_${query}`);\nconst currentUrl = await mainPage.getCurrentUrl();\nconst pageTitle = await mainPage.getTitle();\nconsole.log(`URL after search: ${currentUrl}`);\nconsole.log(`Title after search: \"${pageTitle}\"`);\nassert.ok(pageTitle.length > 0, 'Page should have a title');\nconsole.log(`✓ Search test for \"${query}\" passed\\n`);",
+              "err": {},
+              "uuid": "3324ec27-f557-487b-9e0e-2c3ad9e02e16",
+              "parentUUID": "625c4103-7039-46a1-9d1f-4280d3fe7cef",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "@skip This test is skipped for demonstration",
+              "fullTitle": "Kufar.by Test Suite @skip This test is skipped for demonstration",
+              "timedOut": false,
+              "duration": 0,
+              "state": "pending",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": true,
+              "context": null,
+              "code": "",
+              "err": {},
+              "uuid": "91960f02-88d5-4d20-b2a2-01bef87265c4",
+              "parentUUID": "625c4103-7039-46a1-9d1f-4280d3fe7cef",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "@failing This test is expected to fail",
+              "fullTitle": "Kufar.by Test Suite @failing This test is expected to fail",
+              "timedOut": false,
+              "duration": 4,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "console.log('\\n=== Test: Expected failure ===');\nassert.fail('This test is designed to fail as a demonstration of failing tests');",
+              "err": {
+                "message": "AssertionError: This test is designed to fail as a demonstration of failing tests",
+                "estack": "AssertionError [ERR_ASSERTION]: This test is designed to fail as a demonstration of failing tests\n    at Context.<anonymous> (tests\\kufar.test.js:167:16)\n    at process.processImmediate (node:internal/timers:483:21)",
+                "diff": null
+              },
+              "uuid": "d0148be8-5bb7-4986-a6b4-306e39b937cc",
+              "parentUUID": "625c4103-7039-46a1-9d1f-4280d3fe7cef",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "113d7bb4-fe64-4a28-a9bd-4fc439f2087c",
+            "e2eed141-d3df-459d-b8e0-66877047dcaa",
+            "094c157b-0212-4cd9-9eda-c379e3c58f21",
+            "3324ec27-f557-487b-9e0e-2c3ad9e02e16"
+          ],
+          "failures": [
+            "d0148be8-5bb7-4986-a6b4-306e39b937cc"
+          ],
+          "pending": [
+            "91960f02-88d5-4d20-b2a2-01bef87265c4"
+          ],
+          "skipped": [],
+          "duration": 68580,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 30000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 30000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "10.8.2"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "testReport",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "report",
+        "reportFilename": "testReport"
+      },
+      "version": "6.3.2"
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "steps": [
+    {
+      "name": "Главная",
+      "status": "passed",
+      "title": "Viva Braslav"
+    },
+    {
+      "name": "Билеты",
+      "status": "passed",
+      "count": 2
+    },
+    {
+      "name": "Куки",
+      "status": "passed"
+    }
+  ],
+  "status": "passed"
+}

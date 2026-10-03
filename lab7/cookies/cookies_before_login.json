@@ -1,0 +1,32 @@
+[
+  {
+    "domain": ".demoqa.com",
+    "expiry": 1779034760,
+    "httpOnly": false,
+    "name": "_gat_UA-109033876-1",
+    "path": "/",
+    "sameSite": "Lax",
+    "secure": false,
+    "value": "1"
+  },
+  {
+    "domain": ".demoqa.com",
+    "expiry": 1813594700,
+    "httpOnly": false,
+    "name": "_ga",
+    "path": "/",
+    "sameSite": "Lax",
+    "secure": false,
+    "value": "GA1.2.1301186483.1779034701"
+  },
+  {
+    "domain": ".demoqa.com",
+    "expiry": 1779121100,
+    "httpOnly": false,
+    "name": "_gid",
+    "path": "/",
+    "sameSite": "Lax",
+    "secure": false,
+    "value": "GA1.2.1984401497.1779034701"
+  }
+]

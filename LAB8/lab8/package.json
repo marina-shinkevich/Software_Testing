@@ -1,0 +1,16 @@
+{
+  "name": "vivabraslav-tests",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "npx mocha tests/vivabraslav.test.js --reporter spec --timeout 30000",
+    "test:smoke": "npx mocha tests/vivabraslav.test.js --grep \"@smoke\" --timeout 30000",
+    "test:nav": "npx mocha tests/vivabraslav.test.js --grep \"@navigation\" --timeout 30000",
+    "report": "node generate-report.js",
+    "report:open": "node generate-report.js && start report/index.html"
+  },
+  "devDependencies": {
+    "mocha": "^10.8.2",
+    "selenium-webdriver": "^4.27.0",
+    "chromedriver": "^130.0.0"
+  }
+}

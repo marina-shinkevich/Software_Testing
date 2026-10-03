@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "chromedriver": "^147.0.1",
+    "edgedriver": "^6.3.0",
+    "loader": "^2.1.1",
+    "selenium-webdriver": "^4.41.0"
+  }
+}
